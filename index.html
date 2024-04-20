@@ -16,12 +16,35 @@
             </p>
         </div>
     </div>
+
+    <div class="flip__card">
+        <div class="front__card">
+            <h1>
+                Front of the card
+            </h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            </p>
+        </div>
+        <div class="back__card">
+            <h1>
+                Back of the card
+            </h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            </p>
+        </div>
+    </div>
 </body>
 <style>
+    *{
+        box-sizing: border-box;
+    }
     body {
         color: white;
         font-family: Arial, Helvetica, sans-serif;
         text-align: center;
+        padding: 6rem;
     }
     .wrapper {
         width: 200px;
@@ -49,6 +72,45 @@
         opacity: 1;
         transform: scaleX(-1);
         transition: opacity 300ms ease-in-out 500ms, transform 0ms linear 0ms;
+    }
+    .flip__card{
+        position: relative;
+        text-align: left;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 200px;
+        height: 350px;
+        margin-block: 2rem;
+        text-wrap: wrap;
+    }
+    .flip__card>div{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 20px 10px;
+        border-radius: 10px;
+        transition: opacity 800ms ease-in-out, transform 500ms ease-in-out;
+    }
+    .front__card{
+        background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), url(./img/pexels-roman-odintsov-6898857-compressed.jpg);
+    }
+    .back__card{
+        opacity: 0;
+        background-color: rgb(122, 65, 27);
+        transform: scaleX(-1);
+    }
+    .flip__card:hover{
+        && .front__card{
+            opacity: 0;
+            /* transform: scale(-1); */
+            transform: scaleX(-1);
+        }
+        && .back__card{
+            opacity: 1;
+            transform: scaleX(1);
+        }
     }
 </style>
 </html>
